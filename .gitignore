@@ -34,4 +34,8 @@ octave-workspace
 .~lock.*
 
 # Data folder
-Data/bids
+Data/bids_export
+Data/original
+
+# Results folder
+Results/
