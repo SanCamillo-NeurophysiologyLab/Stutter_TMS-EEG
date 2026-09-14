@@ -414,9 +414,12 @@ for iRoi = 1:length(rois)
         % Create structure
         RoiBandData.roi = rois{iRoi};
         RoiBandData.band = bands{iBand};
+        RoiBandData.time = times;
+        RoiBandData.st_subj = {stutterShamData.subj};
         RoiBandData.st_sham = stutter_sham_data_tmp;
         RoiBandData.st_tms = stutter_tms_data_tmp;
         RoiBandData.st_diff = stutter_tms_data_tmp - stutter_sham_data_tmp;
+        RoiBandData.fl_subj = {fluentShamData.subj};
         RoiBandData.fl_sham = fluent_sham_data_tmp;
         RoiBandData.fl_tms = fluent_tms_data_tmp;
         RoiBandData.fl_diff = fluent_tms_data_tmp - fluent_sham_data_tmp;
@@ -444,6 +447,9 @@ for iData = 1:length(allData)
     allData(iData).tot_ci = tot_ci;
     allData(iData).tot_tstat = tot_stats.tstat;
 end
+
+export_path = '/mnt/raid/atonin/balbuzie/TMS-EEG/Results';
+save(fullfile(export_path, "allData.mat"), "allData");
 
 %% Export
 export_path = '/mnt/raid/atonin/balbuzie/TMS-EEG/Results/Stats';
